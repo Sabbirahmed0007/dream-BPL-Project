@@ -3,6 +3,7 @@ import React from 'react';
 const SelectedPlayers = () => {
     return (
         <div>
+            <h1>Hi selected player here</h1>
             
         </div>
     );

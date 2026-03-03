@@ -2,10 +2,10 @@ import React from 'react';
 import cardAvatar from '../../assets/card-avatar.png'
 import countryIcon from '../../assets/Group.png'
 
-const Player = ({ player }) => {
+const Player = ({ player ,handleChoosePlayer }) => {
 
 
-    const { name, img, country, playingRole, rating, category, battingStyle, bowlingStyle , price} = player;
+    const { name, img, country, playingRole, rating, category, battingStyle, bowlingStyle , price, id} = player;
 
 
 
@@ -13,10 +13,10 @@ const Player = ({ player }) => {
 
     return (
         <div>
-            <div className="card bg-white text-black w-96   mx-auto shadow-sm">
+            <div className="card bg-white text-black    mx-5  shadow-sm">
                 <figure>
                     <img
-                        className='w-fit h-[400px]'
+                        className='w-full h-[400px] object-cover'
                         src={img}
                         alt="Shoes" />
                 </figure>
@@ -39,15 +39,15 @@ const Player = ({ player }) => {
                         <span className='badge badge-accent text-white badge-lg'>{ category}</span>
                     </div>
                     <div className='flex items-center justify-between'>
-                        <div className='text-lg font-semibold'>{ battingStyle}</div>
-                        <div className='text-lg font-semibold'>{ bowlingStyle }</div>
+                        <div className=' font-bold'>{ battingStyle}</div>
+                        <div className='font-bold'>{ bowlingStyle }</div>
                     </div>
                     <div className='flex items-center justify-between'>
                         <div>
-                            Price: $<span className='font-semibold'>{ price }</span>
+                            Price: $<span className='font-bold'>{ price }</span>
                         </div>
                         <div>
-                            <button  className='btn'>Choose Player</button>
+                            <button onClick={()=> handleChoosePlayer(id)}  className='btn'>Choose Player</button>
                         </div>
                     </div>
                 </div>
