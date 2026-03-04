@@ -2,7 +2,7 @@ import React from 'react';
 import logoImg from '../../assets/logo.png'
 import Coin from '../../assets/Currency.png'
 
-const Navbar = () => {
+const Navbar = ({ availableBalance }) => {
 
 
 
@@ -21,21 +21,21 @@ const Navbar = () => {
                             <li><a>Fixtures</a></li>
                             <li><a>Team</a></li>
                             <li><a>Schedules</a></li>
-                            <button className='btn btn-outline btn-sm '><span>6000000000</span>Coin<img src={Coin} alt="" /></button>
+                            <button className='btn btn-outline btn-sm '><span>$ {availableBalance }</span>Coin<img src={Coin} alt="" /></button>
                         </ul>
                     </div>
                     <div className="dropdown">
-                        <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+                        <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden relative">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
                         </div>
                         <ul
                             tabIndex="-1"
-                            className="menu menu-sm dropdown-content   rounded-box z-1 mt-3 w-52 p-2 shadow-xl right-0">
+                            className="menu menu-sm dropdown-content   rounded-box z-50 mt-3 w-52 p-2 shadow-xl absolute right-0 bg-black">
                             <li><a>Home</a></li>
                             <li><a>Fixtures</a></li>
                             <li><a>Team</a></li>
                             <li><a>Schedules</a></li>
-                            <button className='btn btn-outline btn-sm '><span>0</span>Coin<img src={Coin} alt="" /></button>
+                            <button className='btn btn-outline btn-sm '><span>$ {availableBalance}</span>Coin<img src={Coin} alt="" /></button>
                             
                         </ul>
                     </div>

@@ -1,36 +1,9 @@
 import React from 'react';
 import cardAvatar from '../../assets/card-avatar.png'
 import countryIcon from '../../assets/Group.png'
-import { useState } from 'react';
 
-const Player = ({ player, setAvailableBalance, availableBalance, setSelectedPlayers, selectedPlayers }) => {
-    // console.log(selectedPlayers);
-    
-
-    const [isSelected, setIsSelected] = useState(false);
-
-    const { name, img, country, playingRole, rating, category, battingStyle, bowlingStyle , price, id} = player;
-
-
-
-    const handleIsSelected = (player) => {
-
-        if (availableBalance < price) {
-            alert("Not Enough Balance");
-            return;
-            
-        }
-
-
-        const newAvailableBalance = availableBalance-price
-
-        console.log(id);
-        setIsSelected(true)
-        setAvailableBalance(newAvailableBalance)
-        setSelectedPlayers( [...selectedPlayers, player])
-        
-    }
-
+const PurchasedPlayer = ({ player }) => {
+    const { name, img, country, playingRole, rating, category, battingStyle, bowlingStyle, price} = player;
 
     return (
         <div>
@@ -57,27 +30,23 @@ const Player = ({ player, setAvailableBalance, availableBalance, setSelectedPlay
                     </div>
                     <div className='my-2 flex items-center justify-between'>
                         <span className='font-semibold'>Rating: <span>{rating}</span></span>
-                        <span className='badge badge-accent text-white badge-lg'>{ category}</span>
+                        <span className='badge badge-accent text-white badge-lg'>{category}</span>
                     </div>
                     <div className='flex items-center justify-between'>
-                        <div className=' font-bold'>{ battingStyle}</div>
-                        <div className='font-bold'>{ bowlingStyle }</div>
+                        <div className=' font-bold'>{battingStyle}</div>
+                        <div className='font-bold'>{bowlingStyle}</div>
                     </div>
                     <div className='flex items-center justify-between'>
                         <div>
-                            Price: $<span className='font-bold'>{ price }</span>
+                            Price: $<span className='font-bold'>{price}</span>
                         </div>
-                        <div>
-                            <button onClick={() => handleIsSelected(player)}
-                            disabled={isSelected}
-                                className='btn bg-white text-black'>{isSelected ? "Selected" : "Choose Player"} </button>
-                        </div>
+
                     </div>
                 </div>
             </div>
-
         </div>
+        
     );
 };
 
-export default Player;
+export default PurchasedPlayer;
