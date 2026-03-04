@@ -2,6 +2,7 @@ import React from 'react';
 import cardAvatar from '../../assets/card-avatar.png'
 import countryIcon from '../../assets/Group.png'
 import { useState } from 'react';
+import {   toast } from 'react-toastify';
 
 const Player = ({ player, setAvailableBalance, availableBalance, setSelectedPlayers, selectedPlayers }) => {
     // console.log(selectedPlayers);
@@ -16,14 +17,22 @@ const Player = ({ player, setAvailableBalance, availableBalance, setSelectedPlay
     const handleIsSelected = (player) => {
 
         if (availableBalance < price) {
-            alert("Not Enough Balance");
+            toast("Not Enough Balance!");
+
+            
+            
             return;
             
         }
 
-
+        if (selectedPlayers.length === 6) {
+            toast("You reached your limit!! You have bought your estimated players");
+            return;
+        }
+        
+        
         const newAvailableBalance = availableBalance-price
-
+        
         console.log(id);
         setIsSelected(true)
         setAvailableBalance(newAvailableBalance)

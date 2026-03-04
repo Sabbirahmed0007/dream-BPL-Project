@@ -1,18 +1,24 @@
 import React from 'react';
 import PurchasedPlayer from './PurchasedPlayer';
 
-const SelectedPlayers = ({ selectedPlayers }) => {
+const SelectedPlayers = ({ selectedPlayers, removePlayer , setToggle}) => {
 
     console.log(selectedPlayers);
     
 
     return (
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center justify-center gap-8'>
+       
+            
+        <div className='my-4 w-4/5 rounded-lg lg:w-3/5 space-y-5'>
             {
-                selectedPlayers.map(player=> <PurchasedPlayer player={player} key={player.id}></PurchasedPlayer>)
+                selectedPlayers.map(player => <PurchasedPlayer removePlayer={removePlayer} player={player} key={player.id}></PurchasedPlayer>)
             }
             
-        </div>
+            <div className='lg:text-left'>
+                <button onClick={()=> setToggle(true)} className='btn btn-warning'>Add More Player</button>
+            </div>
+            </div>
+       
     );
 };
 
